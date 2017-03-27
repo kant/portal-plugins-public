@@ -2,7 +2,7 @@ import unittest2
 from mock import MagicMock, patch
 import os.path
 from boto import kinesis
-from datetime import datetime
+import datetime
 import logging
 from django.core.management import execute_manager
 
@@ -44,6 +44,53 @@ class TestImporter(unittest2.TestCase):
             content = f.read()
 
         with patch('gnmvidispine.vs_item.VSItem.createPlaceholder') as mockcreate:
-            r.process(content,datetime.now())
+            testlog = "{0} Imported from media atom tool".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
-            mockcreate.assert_called_once()
+            r.process(content,datetime.datetime.now())
+
+            mockcreate.assert_called_once_with(
+                {'gnm_asset_category': 'Master',
+                 'gnm_asset_status': 'Ready for Editing',
+                 'gnm_asset_user_keywords': [u'Champions League',
+                                             u'Barcelona',
+                                             u'Real Madrid',
+                                             u'Atletico Madrid',
+                                             u'Bayern Munich',
+                                             u'Dortmund',
+                                             u'Monaco',
+                                             u'Leicester City',
+                                             u'Juventus',
+                                             u'Football',
+                                             u'Sport'],
+                 'gnm_master_mediaatom_atomid': u'18de147b-059f-4bc1-8d9a-c7150718518a',
+                 'gnm_master_mediaatom_status': 'Published',
+                 'gnm_master_mediaatom_uploadlog': testlog,
+                 'gnm_master_mediaatom_uploadstatus': 'Upload Succeeded',
+                 'gnm_master_publication_time': datetime.datetime(2017, 3, 17, 7, 39, 58),
+                 'gnm_master_website_byline': u'Test User',
+                 'gnm_master_website_headline': u'Champions League quarter-final draw: Leicester to face Atl\xe9tico Madrid \u2013 video',
+                 'gnm_master_website_holdingimage': '{"id_16x9": "", "url_16x9": "https://media.guim.co.uk/95ac3a59042cd8779c655c10bbdb31a49e3579e4/0_23_4763_2680/4763.jpg", "filename_16x9": "4763.jpg"}',
+                 'gnm_master_website_item_published': 'live',
+                 'gnm_master_website_standfirst': u"Leicester City will take on Atl\xe9tico Madrid in the last eight of the Champions League after the draw for the quarter-final stage of this season's competition took place on Friday. Dortmund will play Monaco, Bayern Munich meet Real Madrid and Barcelona take on Juventus",
+                 'gnm_master_website_upload_log': testlog,
+                 'gnm_master_website_uploadstatus': 'Upload Succeeded',
+                 'gnm_master_youtube_allowcomments': '',
+                 'gnm_master_youtube_category': u'17',
+                 'gnm_master_youtube_channelid': u'cvdsKJvdshkvdss',
+                 'gnm_master_youtube_description': u"Leicester City will take on Atl\xe9tico Madrid in the last eight of the Champions League after the draw for the quarter-final stage of this season's competition took place on Friday. Dortmund will play Monaco, Bayern Munich meet Real Madrid and Barcelona take on Juventus",
+                 'gnm_master_youtube_keywords': [u'Champions League',
+                                                 u'Barcelona',
+                                                 u'Real Madrid',
+                                                 u'Atletico Madrid',
+                                                 u'Bayern Munich',
+                                                 u'Dortmund',
+                                                 u'Monaco',
+                                                 u'Leicester City',
+                                                 u'Juventus',
+                                                 u'Football',
+                                                 u'Sport'],
+                 'gnm_master_youtube_publication_date_and_time': datetime.datetime(2017, 3, 17, 7, 39, 58),
+                 'gnm_master_youtube_title': u'Champions League quarter-final draw: Leicester to face Atl\xe9tico Madrid \u2013 video',
+                 'title': u'Champions League quarter-final draw: Leicester to face Atl\xe9tico Madrid \u2013 video'},
+                group='Asset'
+            )

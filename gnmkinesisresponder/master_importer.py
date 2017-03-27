@@ -4,11 +4,9 @@ from pprint import pprint
 from urlparse import urlparse
 import os.path
 
+
 class MasterImportResponder(KinesisResponder):
     ITEM_MD_GROUP = 'Asset'
-
-    def lookup_tags(self, tagtextlist):
-        raise RuntimeError("not yet implemented")
 
     def make_pluto_holding_image(self, imageurl):
         #        {
@@ -57,9 +55,10 @@ class MasterImportResponder(KinesisResponder):
 
             'gnm_master_website_headline': content.title,
             'gnm_master_website_standfirst': content.description,
-            'gnm_master_website_tags': self.lookup_tags(content.tags),
-            'gnm_master_website_byline': content.contentChangeDetails['created']['lastModified']['firstName'] + content.contentChangeDetails['created']['lastModified']['lastName'],
-            'gnm_master_website_holdingimage': self.make_pluto_holding_image(content.biggest_poster_image()['file']),
+            # 'gnm_master_website_tags': #we can't set this at the moment because media atom maker only has free-text tags.
+
+            'gnm_master_website_byline': content.contentChangeDetails['created']['user']['firstName'] + " " + content.contentChangeDetails['created']['user']['lastName'],
+            'gnm_master_website_holdingimage': self.make_pluto_holding_image(content.biggest_poster_image().file),
             'gnm_master_website_uploadstatus': 'Upload Succeeded',
             'gnm_master_website_item_published': "live",
             'gnm_master_website_upload_log': uploadlog,
@@ -69,13 +68,13 @@ class MasterImportResponder(KinesisResponder):
             'gnm_master_youtube_keywords': content.tags,
             'gnm_master_youtube_category': content.youtubeCategoryId,
             'gnm_master_youtube_channelid': content.channelId,
-            'gnm_master_youtube_allowcomments': 'allow_comments' if content.commentsEnabled else ""
+            'gnm_master_youtube_allowcomments': 'allow_comments' if content.commentsEnabled else "",
             #'gnm_master_youtube_containsadultcontent' - not defined in atom model - should be??
         }
 
         if 'published' in content.contentChangeDetails:
             metadata['gnm_master_publication_time'] = datetime.fromtimestamp(content.contentChangeDetails['published']['date']/1000)
-            metadata['gnm_masteryoutube_publication_date_and_time'] = datetime.fromtimestamp(content.contentChangeDetails['published']['date']/1000)
+            metadata['gnm_master_youtube_publication_date_and_time'] = datetime.fromtimestamp(content.contentChangeDetails['published']['date']/1000)
 
         pprint(metadata)
         item = VSItem(url=settings.VIDISPINE_URL,user=settings.VIDISPINE_USERNAME,passwd=settings.VIDISPINE_PASSWORD)
