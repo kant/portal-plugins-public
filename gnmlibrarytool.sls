@@ -9,9 +9,9 @@
 {% set module_perm = "0640" %}
 {% set media_perm = "0644" %}
 
-{{ cantemo_plugins }}/gnmlibrarytool:
+{{ cantemo_plugins }}/portal.plugins.gnmlibrarytool:
   file.recurse:
-    - source: salt://gnmplugins/files/gnmlibrarytool
+    - source: salt://gnmplugins/files/portal.plugins.gnmlibrarytool
     - exclude_pat: 'E@(\.git|static/)'
     - include_empty: true
     - makedirs: true
@@ -19,9 +19,9 @@
     - group: {{ owner_gid }}
     - file_mode: {{ module_perm }}
 
-#{{ cantemo_media }}/img/gnmlibrarytool:
+#{{ cantemo_media }}/img/portal.plugins.gnmlibrarytool:
 #  file.recurse:
-#    - source: salt://gnmplugins/files/gnmlibrarytool/static
+#    - source: salt://gnmplugins/files/portal.plugins.gnmlibrarytool/static
 #    - exclude_pat: 'E@(\.git)'
 #    - include_empty: true
 #    - makedirs: true
