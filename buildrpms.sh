@@ -17,7 +17,7 @@ function increment_release {
 
 function build_rpm {
     BASENAME=$1
-    SPECFILE="../../$1.spec"
+    SPECFILE="$1.spec"
     if [ ! -f ${SPECFILE} ]; then
         echo "No spec file for ${BASENAME} so can't build"
         return 0    #don't bork things if it failed
@@ -25,15 +25,16 @@ function build_rpm {
     increment_release ${SPECFILE}
     RPM_BASE=$(grep '%define name' ${SPECFILE} | awk -F ' ' '{print $3}')
 
-	if [ ! -d "${BASENAME}" ]; then
+	if [ ! -d "portal/plugins/${BASENAME}" ]; then
 		echo Plugin source dir ${BASENAME} does not exist, cannot continue
+		return 0 #don't bork things if it failed
 		#exit 2
 	fi
 
 	echo -----------------------------------------
 	echo Compressing ${BASENAME}....
 	echo -----------------------------------------
-    tar cv ${BASENAME} --exclude .idea | gzip > ${HOME}/rpmbuild/${BASENAME}.tar.gz
+    tar cv portal/plugins/${BASENAME} --exclude .idea | gzip > ${HOME}/rpmbuild/${BASENAME}.tar.gz
 
     echo -----------------------------------------
     echo Bundling ${BASENAME}....
@@ -49,13 +50,14 @@ function build_rpm {
     elif [ "${CIRCLE_SHA1}" != "" ]; then
         S3SUBDIR=/public_repo/${CIRCLE_SHA1}
     fi
-
-    aws s3 cp ${HOME}/rpmbuild/RPMS/noarch/${RPM_BASE}*.rpm s3://gnm-multimedia-archivedtech/gnm_portal_plugins${S3SUBDIR}/$x --acl public-read
 }
 
-cd portal/plugins
+if [ ! -d "${HOME}/rpmbuild" ]; then
+    mkdir ${HOME}/rpmbuild
+fi
+
 if [ "$1" == "" ]; then
-	for dir in `find . -maxdepth 1 -mindepth 1 -type d | awk -F '/' '{ print $2 }' | grep -v -E '^\.'`; do
+	for dir in `find portal/plugins -maxdepth 1 -mindepth 1 -type d | awk -F '/' '{ print $3 }' | grep -v -E '^\.'`; do
 	    build_rpm $dir
 	done
 else
