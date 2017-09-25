@@ -34,7 +34,7 @@ function build_rpm {
 	echo -----------------------------------------
 	echo Compressing ${BASENAME}....
 	echo -----------------------------------------
-    tar cv portal/plugins/${BASENAME} --exclude .idea | gzip > ${HOME}/rpmbuild/${BASENAME}.tar.gz
+    tar cv portal/plugins/${BASENAME} --exclude .idea | gzip > ${HOME}/rpmbuild/SOURCES/${BASENAME}.tar.gz
 
     echo -----------------------------------------
     echo Bundling ${BASENAME}....
