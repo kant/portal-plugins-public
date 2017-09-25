@@ -53,7 +53,7 @@ function build_rpm {
 }
 
 if [ ! -d "${HOME}/rpmbuild" ]; then
-    mkdir ${HOME}/rpmbuild
+    mkdir -p ${HOME}/rpmbuild/SOURCES
 fi
 
 if [ "$1" == "" ]; then
