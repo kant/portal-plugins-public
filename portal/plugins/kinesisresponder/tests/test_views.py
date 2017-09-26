@@ -1,9 +1,9 @@
+from __future__ import absolute_import
 import django.test
 from rest_framework.test import APIClient
 from django.core.urlresolvers import reverse_lazy, reverse
 import os
 from django.core.management import execute_from_command_line
-import django_test_settings
 import logging
 
 logging.basicConfig(level=logging.DEBUG)

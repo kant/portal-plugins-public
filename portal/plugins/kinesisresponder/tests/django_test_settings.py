@@ -18,8 +18,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'djangotestdb.sqlite3'),
     }
 }
-if(os.path.exists(DATABASES['default']['NAME'])):
-    os.unlink(DATABASES['default']['NAME'])
 
 BASE_PATH = os.path.abspath(os.path.dirname(__file__))
 
