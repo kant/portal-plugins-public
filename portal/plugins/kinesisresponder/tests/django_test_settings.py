@@ -6,16 +6,17 @@ logger.level = logging.DEBUG
 BASE_DIR = "/tmp"
 SECRET_KEY = 'n0555U1UAiKI/LsKYL1MqcRltPo9BRDkAGuX+Ww'
 INSTALLED_APPS = ['portal.plugins.kinesisresponder',
+                  'south',
                   'django.contrib.auth',
                   'django.contrib.contenttypes',
-                  'django.contrib.sessions',
-                  'south']
+                  'django.contrib.sessions'
+                  ]
 
 ROOT_URLCONF = 'portal.plugins.kinesisresponder.urls'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'djangotestdb.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'krestestdb.sqlite3'),
     }
 }
 

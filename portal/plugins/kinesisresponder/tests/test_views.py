@@ -1,17 +1,20 @@
 from __future__ import absolute_import
+import os
 import django.test
 from rest_framework.test import APIClient
-from django.core.urlresolvers import reverse_lazy, reverse
-import os
+from django.core.urlresolvers import reverse
 from django.core.management import execute_from_command_line
+import portal.plugins.kinesisresponder.tests.django_test_settings as django_test_settings
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
+os.environ["DJANGO_SETTINGS_MODULE"] = "portal.plugins.kinesisresponder.tests.django_test_settings"
 
 execute_from_command_line(['manage.py', 'syncdb', '--noinput'])
 execute_from_command_line(['manage.py', 'migrate', '--noinput'])
-
+execute_from_command_line(['manage.py','loaddata',"users.yaml"])
+execute_from_command_line(['manage.py','loaddata',"kinesis_tracker.yaml"])
 
 class TestViews(django.test.TestCase):
     fixtures = [
