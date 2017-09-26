@@ -26,7 +26,6 @@ but is a base that other plugins can use to do useful things with those messages
 
 %install
 mkdir -p $RPM_BUILD_ROOT/opt/cantemo/portal/portal/plugins/kinesisresponder
-#cp -a /opt/cantemo/portal/portal/plugins/kinesisresponder/* $RPM_BUILD_ROOT/opt/cantemo/portal/portal/plugins/kinesisresponder
 cd $RPM_BUILD_ROOT/opt/cantemo/portal
 tar xvzf %{_sourcedir}/kinesisresponder.tar.gz
 
