@@ -28,7 +28,7 @@ class LogSearchUrl(Plugin):
     implements(IPluginURL)
 
     name = 'GNM Advanced Log Search URL'
-    urls = 'portal.plugins.portal.plugins.gnmlogsearch.urls'
+    urls = 'portal.plugins.gnmlogsearch.urls'
     urlpattern = r'^portal.plugins.gnmlogsearch/'
     namespace = 'portal.plugins.gnmlogsearch'
     plugin_guid = 'ad0f0f88-de96-11e4-9329-60030890043a'

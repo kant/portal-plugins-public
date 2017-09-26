@@ -18,7 +18,7 @@ class GnmuploadprofilerPluginURL(Plugin):
 
     def __init__(self):
         self.name = "GNM Upload Profiler"
-        self.urls = 'portal.plugins.portal.plugins.gnmuploadprofiler.urls'
+        self.urls = 'portal.plugins.gnmuploadprofiler.urls'
         self.urlpattern = r'^portal.plugins.gnmuploadprofiler/'
         self.namespace = r'portal.plugins.gnmuploadprofiler'
         self.plugin_guid = '100fb673-fc07-4f18-9e9c-f85717238936'
