@@ -34,7 +34,7 @@ class GnmyoutubeAdminPlugin(Plugin):
 
     def return_string(self,tagname,*args):
         #raise StandardError("testing")
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmsyndication/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmsyndication/navigation.html'}
 
 adminplug = GnmyoutubeAdminPlugin()
 
@@ -47,8 +47,6 @@ class GnmSyndicationUrl(Plugin):
     namespace = 'portal.plugins.gnmsyndication'
     plugin_guid = 'e1e3f018-cf17-11e4-861b-60030890043a'
 
-    def __init__(self):
-        log.info(GnmSyndicationUrl.name + ' initialized')
 
 helloworldurlplugin = GnmSyndicationUrl()
 

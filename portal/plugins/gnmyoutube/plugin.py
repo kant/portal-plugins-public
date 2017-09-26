@@ -40,7 +40,7 @@ class GnmyoutubeAdminNavigationPlugin(Plugin):
     # Returns the template file navigation.html
     # Change navigation.html to the string that you want to use
     def return_string(self, tagname, *args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmyoutube/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmyoutube/navigation.html'}
 
 navplug = GnmyoutubeAdminNavigationPlugin()
 
@@ -54,7 +54,7 @@ class GnmyoutubeAdminPlugin(Plugin):
 
     def return_string(self,tagname,*args):
         #raise StandardError("testing")
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmyoutube/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmyoutube/navigation.html'}
 
 adminplug = GnmyoutubeAdminPlugin()
 

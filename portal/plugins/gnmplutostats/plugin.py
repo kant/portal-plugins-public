@@ -36,7 +36,7 @@ class GnmplutostatsAdminPlugin(Plugin):
         log.debug('initiated GNMPlutoStats admin panel')
 
     def return_string(self,tagname,*args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmplutostats/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmplutostats/navigation.html'}
 
 adminplug = GnmplutostatsAdminPlugin()
 
@@ -54,7 +54,7 @@ class GnmplutostatsAdminNavigationPlugin(Plugin):
     # Returns the template file navigation.html
     # Change navigation.html to the string that you want to use
     def return_string(self, tagname, *args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmplutostats/menu_nav.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmplutostats/menu_nav.html'}
 
 navplug = GnmplutostatsAdminNavigationPlugin()
 
