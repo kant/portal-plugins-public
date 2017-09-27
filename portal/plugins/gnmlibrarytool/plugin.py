@@ -40,7 +40,7 @@ class GnmlibrarytoolAdminNavigationPlugin(Plugin):
     # Returns the template file navigation.html
     # Change navigation.html to the string that you want to use
     def return_string(self, tagname, *args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmlibrarytool/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmlibrarytool/navigation.html'}
 
 navplug = GnmlibrarytoolAdminNavigationPlugin()
 
@@ -79,7 +79,7 @@ class GnmlibrarytoolItemViewPlugin(Plugin):
         context = args[1]
         item = context['item']
         iid = item.getId()
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmlibrarytool/mediaviewmenuitem.html', 'context': {'item_id': iid}}
+        return {'guid': self.plugin_guid, 'template': 'gnmlibrarytool/mediaviewmenuitem.html', 'context': {'item_id': iid}}
 
 gnmlibrarytoolitemviewplugin = GnmlibrarytoolItemViewPlugin()
 
@@ -122,6 +122,6 @@ class GnmlibrarytoolStorageRulesViewPlugin(Plugin):
         self.plugin_guid = "2b849f0f-0509-4edb-98a0-78da05e60682"
 
     def return_string(self,tagname,*args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmlibrarytool/mediaview_storagerules.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmlibrarytool/mediaview_storagerules.html'}
 
 gnmlibrarytoolSRviewplugin = GnmlibrarytoolStorageRulesViewPlugin()

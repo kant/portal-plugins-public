@@ -14,7 +14,7 @@ from django.core.urlresolvers import reverse_lazy
 # name is shortcut name for the urls.
 
 urlpatterns = patterns('portal.plugins.gnmgridintegration.views',
-    url(r'^$', 'GenericAppView', kwargs={'template': 'portal.plugins.gnmgridintegration/index.html'}, name='index'),
+    url(r'^$', 'GenericAppView', kwargs={'template': 'gnmgridintegration/index.html'}, name='index'),
     url(r'^callback/jobnotification$',VSCallbackView.as_view(), name='gridintegration_callback_url'),
 
     url(r'^admin/metadata/(?P<pk>\d+)/edit$', MDEditView.as_view(), name='gnmgridintegration_edit_meta'),

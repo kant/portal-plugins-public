@@ -70,7 +70,7 @@ class PlutoConverterGenericGearboxPlugin(Plugin):
         print "PlutoConverterGearboxPlugin: tagname {0}".format(tagname)
         return {
             'guid': self.plugin_guid,
-            'template': 'portal.plugins.gnmplutoconverter/navigation.html',
+            'template': 'gnmplutoconverter/navigation.html',
             'context': ctx,
             #'string': 'PlutoConverterGearbox',
         }

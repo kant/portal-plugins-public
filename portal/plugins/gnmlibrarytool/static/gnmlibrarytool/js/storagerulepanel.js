@@ -40,7 +40,7 @@ function load_storage_rule_info(itemid)
                                     ".  Include: " +  includestr +
                                     "; Exclude: " + excludestr
                                     )
-                $('<p>').append($('<a>',{'href': '/portal.plugins.gnmlibrarytool/' + ptr['applies_to'][1]}).html('Applied from ' + ptr['applies_to'][0] + ' ' + ptr['applies_to'][1])).appendTo(rules_cell);
+                $('<p>').append($('<a>',{'href': '/gnmlibrarytool/' + ptr['applies_to'][1]}).html('Applied from ' + ptr['applies_to'][0] + ' ' + ptr['applies_to'][1])).appendTo(rules_cell);
             });
         });
     }).fail(function(jqXHR, textStatus, errorThrown){

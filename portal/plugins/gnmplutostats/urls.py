@@ -11,7 +11,7 @@ from views import GetStatsView, GetLibraryStats
 # name is shortcut name for the urls.
 
 urlpatterns = patterns('portal.plugins.gnmplutostats.views',
-    url(r'^$', 'GenericAppView', kwargs={'template': 'portal.plugins.gnmplutostats/index.html'}, name='index'),
+    url(r'^$', 'GenericAppView', kwargs={'template': 'gnmplutostats/index.html'}, name='index'),
     url(r'^stats/([^\/]+)\/*', GetStatsView.as_view(), name='gnmplutostats_get_stats'),
     url(r'^library_stats/([^\/]+)\/*', GetLibraryStats.as_view(), name='gnmplutostats_library_stats'),
 )

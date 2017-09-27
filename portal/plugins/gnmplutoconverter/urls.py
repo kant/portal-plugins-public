@@ -11,7 +11,7 @@ from views import WorkingGroupListView, CommissionListView, ProjectListView, DoC
 # name is shortcut name for the urls.
 
 urlpatterns = patterns('portal.plugins.gnmplutoconverter.views',
-    url(r'^$', 'GenericAppView', kwargs={'template': 'portal.plugins.gnmplutoconverter/index.html'}, name='index'),
+    url(r'^$', 'GenericAppView', kwargs={'template': 'gnmplutoconverter/index.html'}, name='index'),
     url(r'^workinggroups$', WorkingGroupListView.as_view(), name="working_groups" ),
     url(r'^commissions$', CommissionListView.as_view(), name="commission_list"),
     url(r'^projects$', ProjectListView.as_view(), name="project_list"),

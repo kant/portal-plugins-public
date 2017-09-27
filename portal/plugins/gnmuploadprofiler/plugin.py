@@ -40,7 +40,7 @@ class GnmuploadprofilerAdminNavigationPlugin(Plugin):
     # Returns the template file navigation.html
     # Change navigation.html to the string that you want to use
     def return_string(self, tagname, *args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmuploadprofiler/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmuploadprofiler/navigation.html'}
 
 navplug = GnmuploadprofilerAdminNavigationPlugin()
 

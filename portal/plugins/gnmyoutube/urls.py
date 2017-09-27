@@ -12,7 +12,7 @@ from views import *
 # name is shortcut name for the urls.
 
 urlpatterns = patterns('portal.plugins.gnmyoutube.views',
-    #url(r'^$', 'GenericAppView', kwargs={'template': 'portal.plugins.gnmyoutube/index.html'}, name='index'),
+    #url(r'^$', 'GenericAppView', kwargs={'template': 'gnmyoutube/index.html'}, name='index'),
     url(r'^$', YoutubeIndexView.as_view(), name='index'),
     url(r'^admin/$',YoutubeAdminView.as_view(), name='admin'),
     url(r'^admin/testconnection$',YoutubeTestConnectionView.as_view(), name='testconn'),

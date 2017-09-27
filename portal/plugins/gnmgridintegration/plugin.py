@@ -41,7 +41,7 @@ class GnmgridintegrationAdminNavigationPlugin(Plugin):
     # Returns the template file navigation.html
     # Change navigation.html to the string that you want to use
     def return_string(self, tagname, *args):
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmgridintegration/menu_nav.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmgridintegration/menu_nav.html'}
 
 navplug = GnmgridintegrationAdminNavigationPlugin()
 
@@ -94,6 +94,6 @@ class GnmgridintegrationAdminPlugin(Plugin):
 
     def return_string(self,tagname,*args):
         #raise StandardError("testing")
-        return {'guid': self.plugin_guid, 'template': 'portal.plugins.gnmgridintegration/navigation.html'}
+        return {'guid': self.plugin_guid, 'template': 'gnmgridintegration/navigation.html'}
 
 adminplug = GnmgridintegrationAdminPlugin()
