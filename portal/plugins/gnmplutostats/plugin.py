@@ -21,7 +21,7 @@ class GnmplutostatsPluginURL(Plugin):
         self.name = "Gnmplutostats App"
         self.urls = 'portal.plugins.gnmplutostats.urls'
         self.urlpattern = r'^portal.plugins.gnmplutostats/'
-        self.namespace = r'portal.plugins.gnmplutostats'
+        self.namespace = r'gnmplutostats'
         self.plugin_guid = '227c2ab9-e299-4537-99b4-c313a35d1b2e'
         log.debug("Initiated Gnmplutostats App")
 

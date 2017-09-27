@@ -21,7 +21,7 @@ class GnmplutoconverterPluginURL(Plugin):
         self.name = "Gnmplutoconverter App"
         self.urls = 'portal.plugins.gnmplutoconverter.urls'
         self.urlpattern = r'^portal.plugins.gnmplutoconverter/'
-        self.namespace = r'portal.plugins.gnmplutoconverter'
+        self.namespace = r'gnmplutoconverter'
         self.plugin_guid = '09346faa-6818-4ec3-88aa-8a7c8dde054e'
         log.debug("Initiated Gnmplutoconverter App")
 
