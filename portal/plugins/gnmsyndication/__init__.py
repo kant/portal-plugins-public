@@ -43,8 +43,8 @@ class GnmSyndicationUrl(Plugin):
 
     name = 'GNM Syndication URL'
     urls = 'portal.plugins.gnmsyndication.urls'
-    urlpattern = r'^portal.plugins.gnmsyndication/'
-    namespace = 'portal.plugins.gnmsyndication'
+    urlpattern = r'^gnmsyndication/'
+    namespace = 'gnmsyndication'
     plugin_guid = 'e1e3f018-cf17-11e4-861b-60030890043a'
 
 

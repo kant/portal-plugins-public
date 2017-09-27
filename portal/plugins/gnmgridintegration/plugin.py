@@ -20,7 +20,7 @@ class GnmgridintegrationPluginURL(Plugin):
     def __init__(self):
         self.name = "Gnmgridintegration App"
         self.urls = 'portal.plugins.gnmgridintegration.urls'
-        self.urlpattern = r'^portal.plugins.gnmgridintegration/'
+        self.urlpattern = r'^gnmgridintegration/'
         self.namespace = r'gnmgridintegration'
         self.plugin_guid = '435bd5e0-17e5-41db-9cd9-8e26917a0dc2'
         log.debug("Initiated Gnmgridintegration App")

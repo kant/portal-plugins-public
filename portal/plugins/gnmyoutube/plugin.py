@@ -19,7 +19,7 @@ class GnmyoutubePluginURL(Plugin):
     def __init__(self):
         self.name = "Gnmyoutube App"
         self.urls = 'portal.plugins.gnmyoutube.urls'
-        self.urlpattern = r'^portal.plugins.gnmyoutube/'
+        self.urlpattern = r'^gnmyoutube/'
         self.namespace = r'gnmyoutube'
         self.plugin_guid = '5e8deba5-884d-41ea-9e4e-aa4386b3884d'
         log.debug("Initiated Gnmyoutube App")

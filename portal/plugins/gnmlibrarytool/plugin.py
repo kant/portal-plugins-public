@@ -19,7 +19,7 @@ class GnmlibrarytoolPluginURL(Plugin):
     def __init__(self):
         self.name = "Gnmlibrarytool App"
         self.urls = 'portal.plugins.gnmlibrarytool.urls'
-        self.urlpattern = r'^portal.plugins.gnmlibrarytool/'
+        self.urlpattern = r'^gnmlibrarytool/'
         self.namespace = r'gnmlibrarytool'
         self.plugin_guid = 'b430f578-edc5-4508-bd0d-2bd7493d2994'
         log.debug("Initiated Gnmlibrarytool App")
